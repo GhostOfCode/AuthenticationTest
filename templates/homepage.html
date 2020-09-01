@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        Login
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+        <div class="container">
+            <div>Привет! У тебя есть друзья?</div>
+            <a class="btn btn-primary" href="http://127.0.0.1:8000/login" role="button">
+                Давай авторизируемся и увидим их!
+            </a>
+        </div>
+    {% endblock %}
+</body>
+</html>

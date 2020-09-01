@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% block title %}
+        Login
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+        <div class="container">
+        <div>А вот и твои друзья!</div>
+            {% for friend in vk_list %}
+                <ul class="list-group">
+                    <li class="list-group-item">{{ friend }}</li>
+                </ul>
+            {% endfor %}
+        </div>
+    {% endblock %}
+</body>
+</html>
