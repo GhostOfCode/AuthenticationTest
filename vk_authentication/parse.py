@@ -26,3 +26,8 @@ print(code)
 absolute_uri = 'http://REDIRECT_URI#access_token=533bacf01e11f55b536a565b57531ad114461ae8736d6506a3&expires_in=86400&user_id=8492&state=123456'
 code = re.split('access_token=|&expires_in=|user_id=|&', absolute_uri)
 print(code)
+
+response = requests.get("https://jsonplaceholder.typicode.com/todos")
+data = response.json()
+print(data)
+print(data[0]['userId'])
