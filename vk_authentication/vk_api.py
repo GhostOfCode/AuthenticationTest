@@ -1,5 +1,6 @@
-from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render, redirect
+from django.http import HttpResponseRedirect
+from django.shortcuts import render
+from django.core.cache import cache
 import requests
 import re
 
@@ -29,6 +30,7 @@ def get_token(request):
     print(data)
     token = data['access_token']
     user_id = data['user_id']
+    cache.set_many({'my_key': token, 'my_id': user_id})
     return token, user_id
 
 

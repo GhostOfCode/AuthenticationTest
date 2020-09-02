@@ -24,5 +24,6 @@ def login(request):
 
 
 def list_friends(request):
+    vk_api.login(request)
     context = vk_api.get_friends(*vk_api.get_token(request))
     return render(request, 'friendslist.html', context=context)
