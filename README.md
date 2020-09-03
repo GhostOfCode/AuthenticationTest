@@ -6,12 +6,15 @@
 ### Стек
 Приложение реализовано с помощью языка Python 3.8 на фреймворке Django 3.1.
  
-### Локальная установка приложения 
+### Локальная установка приложения - необходимо лишь установить Django
 ```bash
-
-
+git clone https://github.com/GhostOfCode/AuthenticationTest.git
+cd AuthenticationTest
+python3 -m venv venv
+venv\Scripts\activate
+pip install django
 ```
-### Запуск сервиса
+### Запуск сервиса локально
 ```bash
-manage.py runserver 
+py manage.py runserver 
 ``` 
