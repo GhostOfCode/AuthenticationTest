@@ -2,7 +2,6 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.core.cache import cache
 import requests
-import re
 
 
 API_VER = 5.122
@@ -20,8 +19,7 @@ def login(request):
 
 
 def get_token(request):
-    absolute_uri = request.build_absolute_uri()
-    code = re.split('code=', absolute_uri)[-1]
+    code = request.GET.get('code')
     return_link = 'https://oauth.vk.com/access_token?client_id={0}'.format(APP_ID)
     get_token_and_id = requests.get(return_link, params={
         'client_secret': APP_KEY, 'redirect_uri': 'http://127.0.0.1:8000/friendslist',

@@ -9,11 +9,13 @@
 </head>
 <body>
     {% block content %}
-        <div class="container">
-            <div>Привет! У тебя есть друзья?</div>
-            <a class="btn btn-primary" href="http://127.0.0.1:8000/login" role="button">
-                Давай авторизируемся и увидим их!
-            </a>
+        <div class="container col-3 center mt-5 p-1 justify-content-center">
+            <div class="row justify-content-center mt-5 p-1">Привет! У тебя есть друзья?</div>
+            <div class="row justify-content-center">
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/login" role="button">
+                Давай увидим их!
+                </a>
+            </div>
         </div>
     {% endblock %}
 </body>

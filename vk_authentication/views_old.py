@@ -159,6 +159,8 @@
 #
 #
 # def get_token(request):
+#     token = request.GET.get('access_token')
+#     user_id = request.GET.get('user_id ')
 #     absolute_uri = request.build_absolute_uri()
 #     code = re.split('code=', absolute_uri)[-1]
 #     return_link = 'https://oauth.vk.com/access_token?client_id={0}'.format(APP_ID)

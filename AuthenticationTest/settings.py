@@ -36,17 +36,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'vk_authentication.apps.VkAuthenticationConfig',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.vk',
 ]
 
-SESSION_ENGINE = "django.contrib.sessions.backends.cache"
-
-CACHES = {
-    'default': {
-        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': '127.0.0.1:11211',
-        'TIMEOUT': 60,
-    }
-}
+# SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+#
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+#         'LOCATION': '127.0.0.1:11211',
+#         'TIMEOUT': 60,
+#     }
+# }
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -61,6 +66,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'AuthenticationTest.urls'
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/friendslist'
 
 TEMPLATES = [
     {
@@ -78,6 +87,21 @@ TEMPLATES = [
         },
     },
 ]
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend',
+)
+
+SOCIALACCOUNT_PROVIDERS = {
+    'vk': {
+        'APP': {
+            'client_id': '7580883',
+            'secret': 'UigEwK1kQwRnrcypb4Rd',
+            'key': '18b7745318b7745318b774533e18c4d880118b718b7745347fb5e7a01939f35035a1cb0'
+        }
+    }
+}
 
 WSGI_APPLICATION = 'AuthenticationTest.wsgi.application'
 

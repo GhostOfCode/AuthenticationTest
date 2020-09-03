@@ -9,13 +9,20 @@
 </head>
 <body>
     {% block content %}
-        <div class="container">
-        <div>А вот и твои друзья!</div>
+        <div class="container col-3 center mt-5 p-1 justify-content-center">
+        <div class="row justify-content-center">А вот и твои друзья!</div>
             {% for friend in vk_list %}
-                <ul class="list-group">
-                    <li class="list-group-item">{{ friend }}</li>
-                </ul>
+                <div class="list-group">
+                  <a href="https://vk.com/{{ friend.domain }}" class="list-group-item list-group-item-action m-1 p-1">
+                    id{{ friend.id }}, {{ friend.first_name }} {{ friend.last_name }}
+                  </a>
+                </div>
             {% endfor %}
+            <div class="row justify-content-center">
+                <a class="btn btn-primary" href="http://127.0.0.1:8000/login" role="button">
+                    Давай ещё раз!
+                </a>
+            </div>
         </div>
     {% endblock %}
 </body>
